@@ -3,5 +3,5 @@ spawn ssh  root@localhost  /tmp/holamundo.sh
 expect "(yes/no)?"
 send "yes\r"
 expect "password:"
-send "13969100\r"
+send "xxxxxxx\r"
 expect eof
