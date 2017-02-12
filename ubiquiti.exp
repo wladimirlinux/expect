@@ -2,7 +2,7 @@
 
 spawn ssh  ubnt@192.168.2.7
 expect "Password:"
-send "13162509\r"
+send "xxxxxxx\r"
 expect "#"
 send "reboot\r"
 expect "#"
