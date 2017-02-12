@@ -2,7 +2,7 @@
 
 spawn ssh  root@lamorita.homelinux.com -p 5001
 expect "Password:"
-send "13969100\r"
+send "xxxxxxx\r"
 expect "#"
 send "ls\r"
 expect "#"
