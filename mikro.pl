@@ -5,7 +5,7 @@ use Net::SSH::Perl;
 
 my $host = "192.168.4.121";
 my $user = "admin";
-my $pass = "13969100";
+my $pass = "XXXXXXX";
 
 my $ssh = Net::SSH::Perl->new($host,cipher => "IDEA");
 
