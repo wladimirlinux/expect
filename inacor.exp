@@ -2,7 +2,7 @@
 
 spawn ssh  root@inacor.homelinux.com
 expect "Password:"
-send "giacosys00\r"
+send "XXXXXXXX\r"
 expect "#"
 send "ls\r"
 expect "#"
