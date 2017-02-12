@@ -1,0 +1,9 @@
+#!/usr/bin/expect
+spawn ssh  prueba@localhost
+expect "password:"
+send "prueba\r"
+expect "#"
+send "ls\r"
+expect "#"
+send "exit\r"
+expect eof

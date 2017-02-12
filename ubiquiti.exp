@@ -1,0 +1,10 @@
+#!/usr/bin/expect
+
+spawn ssh  ubnt@192.168.2.7
+expect "Password:"
+send "13162509\r"
+expect "#"
+send "reboot\r"
+expect "#"
+send "exit\r"
+expect eof

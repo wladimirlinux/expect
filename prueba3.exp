@@ -1,0 +1,6 @@
+#!/usr/bin/expect
+spawn ssh  root@lamorita.homelinux.com -p 8079   aptitude upgrade 
+expect "(yes/no)?"
+send "yes\r"
+expect "password:"
+send "13969100\r"

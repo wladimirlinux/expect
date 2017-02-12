@@ -1,0 +1,10 @@
+#!/usr/bin/expect
+
+spawn ssh  root@inacor.homelinux.com
+expect "Password:"
+send "giacosys00\r"
+expect "#"
+send "ls\r"
+expect "#"
+send "echo Bienvenido a inacor\r"
+expect eof

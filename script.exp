@@ -1,0 +1,32 @@
+#!/usr/bin/expect
+
+set site <direccion_servidor>
+set user <usuario>
+set pass <password>
+set path <ruta/a/los/archivos/>
+set files *.bz2
+
+spawn ftp $site
+expect "Name"
+
+send "$user\r"
+expect "Password:"
+
+send "$pass\r"
+expect "ftp>"
+
+send "prompt\r"
+expect "ftp>"
+
+send "bin\r"
+expect "ftp>"
+
+send "lcd $path\r"
+expect "ftp>"
+
+send "mput $files\r"
+expect -timeout -1 "ftp>"
+
+send "bye\r"
+expect eof
+

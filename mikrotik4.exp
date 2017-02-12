@@ -1,0 +1,16 @@
+#!/bin/bash
+expect << EOF
+set timeout 20
+spawn ssh admin@192.168.4.121 
+expect "Password:" 
+send "13969100\r"
+expect "*>"
+send "system reboot\r"
+expect "*y/n*"
+send "y\r"
+expect "*>"
+send "quit\r"
+
+exit
+
+EOF

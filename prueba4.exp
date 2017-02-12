@@ -1,0 +1,17 @@
+#!/usr/bin/expect
+set ip_env [lindex $argv 0]
+set us_env [lindex $argv 1]
+set ps_env [lindex $argv 2]
+set darch_env [lindex $argv 3]
+set narch_env [lindex $argv 4]
+set darch_rec [lindex $argv 5]
+spawn sftp $us_env@$ip_env
+expect “$us_env@$ip_env’s password:”
+send “$ps_env\r”
+expect “sftp>”
+send “cd $darch_rec\r”
+expect “sftp>”
+send “put $darch_env$narch_env\r”
+expect “sftp>”
+send “exit\r”
+expect eof

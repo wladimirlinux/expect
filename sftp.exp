@@ -1,0 +1,36 @@
+#!/usr/bin/expect 
+#este script usa expect como interprete de comandos 
+#nos conectamos a la primer maquina 
+spawn sftp root@inacor.homelinux.com 
+#Esperamos que nos pida el pass 
+expect "password:" 
+#Enviamos el password 
+send "giacosys00\n" 
+#esperamos el prompt 
+expect "sftp>" 
+#nos movemos a la carpeta remota donde dejaremos el archivo 
+send "cd [PATH REMOTO DONDE SE VA A COPIAR EL ARCHIVO]\n" 
+#Esperamos el prompt 
+expect "sftp>" 
+#Nos movemos a la carpeta local desde donde copiaremos el archivo 
+send "lcd [PATH LOCAL DESDE DONDE COPIAMOS EL ARCHIVO]\n" 
+#Enviamos el archivo local a la maquina remota 
+send "put [ARCHIVO A ENVIAR]\n" 
+#Esperamos a que en la consola se complete el 100% de transferencia 
+expect "^.*100%.*$" 
+#Esperamos el prompt 
+expect "sftp>" 
+#Nos desconectamos de la primer maquina 
+send "bye\n" 
+#Ahora la segunda y se repite todo 
+spawn sftp root@[nombre o IP de la segunda maquina a conectarse] 
+expect "password:" 
+send "[PASSWORD]\n" 
+expect "sftp>" 
+send "cd [PATH REMOTO DONDE SE VA A COPIAR EL ARCHIVO]\n" 
+expect "sftp>" 
+send "lcd [PATH LOCAL DESDE DONDE COPIAMOS EL ARCHIVO]\n" 
+send "put [ARCHIVO A ENVIAR]\n" 
+expect "^.*100%.*$" 
+expect "sftp>" 
+send "bye\n" 
